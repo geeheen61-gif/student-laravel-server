@@ -17,7 +17,7 @@ class Handler extends ExceptionHandler
     /**
      * Override to avoid using the View facade during early exception rendering.
      */
-    protected function registerErrorViewPaths(): void
+    public function registerErrorViewPaths()
     {
         // Intentionally left blank to prevent calls to the View facade
     }
