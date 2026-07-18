@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: laravel-api
+    env: php
+    plan: free
+    buildCommand: composer install
+    startCommand: php -S 0.0.0.0:$PORT -t public
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        value: gateway01.ap-southeast-1.prod.aws.tidbcloud.com
+      - key: DB_PORT
+        value: "4000"
+      - key: DB_DATABASE
+        value: sys
+      - key: DB_USERNAME
+        value: '356ZxDEM2x1PTgk.root'
+      - key: DB_PASSWORD
+        value: '4wsTkhuyCkaHZ0Kv'
+      - key: DB_SSL_MODE
+        value: VERIFY_IDENTITY
+      - key: DB_SSL_CA
+        value: /path/to/ca.pem
