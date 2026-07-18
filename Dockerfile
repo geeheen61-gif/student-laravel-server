@@ -21,6 +21,7 @@ WORKDIR /var/www/html
 COPY . /var/www/html
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction \
+    && mkdir -p /var/www/html/storage/framework/{cache,data,sessions,views} /var/www/html/storage/logs /var/www/html/bootstrap/cache \
     && chown -R www-data:www-data /var/www/html \
     && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
