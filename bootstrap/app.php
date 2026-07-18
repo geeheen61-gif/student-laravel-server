@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Facade;
 
 $app = new Application(
     dirname(__DIR__)
 );
+
+Facade::setFacadeApplication($app);
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
