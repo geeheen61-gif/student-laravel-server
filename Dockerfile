@@ -27,6 +27,10 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction \
 
 RUN a2enmod rewrite
 
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/*.conf \
+    && echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
 EXPOSE 80
 
 CMD ["apache2-foreground"]
